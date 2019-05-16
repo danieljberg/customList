@@ -9,12 +9,11 @@ namespace customListTest
     {
         [TestMethod]
         public void Add_AddingToList_Add5ToFirstIndex()
-        {
-            
+        {            
             //Arrange
             CustomList<int> myList = new CustomList<int>();
             int expected = 5;
-            int actual = myList[0]; 
+            int actual = myList[0];
             //Act
             myList.Add(expected);
             
@@ -88,7 +87,7 @@ namespace customListTest
             myList.Add(value3);
             myList.Add(value4);
             //Assert
-            Assert.AreEqual(value4, myList[4]);
+            Assert.AreEqual(value4, myList.items[4]);
         }
 
         [TestMethod]
@@ -110,21 +109,8 @@ namespace customListTest
 
             //Assert
             Assert.AreEqual(expected, actual);
-        }
-        [TestMethod]
-        public void Add_Contain_Index3ShouldBeNull()
-        {
-            //Arrange
-            CustomList<string> myList = new CustomList<string>();
-            string word = "Packers";
-            string expected = null;
-            string actual;
-            //Act
-            myList.Add(word);
-            actual = Assert.IsNull(myList[3]);
-            //Assert
-            Assert.AreEqual(expected, actual);
-        }
+        }        
+        
         //[TestMethod]
         //public void Remove_RemoveNumber_RemoveNumber15AtIndex2()
         //{

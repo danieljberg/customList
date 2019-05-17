@@ -13,10 +13,10 @@ namespace customListTest
             //Arrange
             CustomList<int> myList = new CustomList<int>();
             int expected = 5;
-            int actual = myList[0];
+            int actual;
             //Act
             myList.Add(expected);
-            
+            actual = myList[0];
             //Assert
             Assert.AreEqual(expected, actual);
         }
@@ -28,11 +28,11 @@ namespace customListTest
             int value = 5;
             int value1 = 10;
             int expected = 5;
-            int actual = myList[0];
+            int actual;
             //Act
             myList.Add(value);
             myList.Add(value1);
-
+            actual = myList[0];
             //Assert
             Assert.AreEqual(expected, actual);
         }
@@ -44,11 +44,11 @@ namespace customListTest
             int value = 5;
             int value1 = 10;
             int expected = 10;
-            int actual = myList[1];
+            int actual;
             //Act
             myList.Add(value);
             myList.Add(value1);
-
+            actual = myList[1];
             //Assert
             Assert.AreEqual(expected, actual);
         }
@@ -60,11 +60,11 @@ namespace customListTest
             int value = 5;
             int value1 = 10;
             int expected = 2;
-            int actual = myList.Count;
+            int actual;
             //Act
             myList.Add(value);
             myList.Add(value1);
-
+            actual = myList.Count;
             //Assert
             Assert.AreEqual(expected, actual);
         }
@@ -78,16 +78,17 @@ namespace customListTest
             int value2 = 15;
             int value3 = 20;
             int value4 = 25;
-            int expected = value4;
-            int actual = myList[4];
+            int expected = 25;
+            int actual;
             //Act
             myList.Add(value);
             myList.Add(value1);
             myList.Add(value2);
             myList.Add(value3);
             myList.Add(value4);
+            actual = myList[4];
             //Assert
-            Assert.AreEqual(value4, myList.items[4]);
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
@@ -99,28 +100,16 @@ namespace customListTest
             string word1 = "Bears";
             string word2 = "Lions";
             string word3 = "Vikings";
-            string expected = word;
-            string actual = myList[0];
+            string expected = "Packers";
+            string actual;
             //Act
             myList.Add(word);
             myList.Add(word1);
             myList.Add(word2);
             myList.Add(word3);
-
+            actual = myList[0];
             //Assert
             Assert.AreEqual(expected, actual);
-        }        
-        
-        //[TestMethod]
-        //public void Remove_RemoveNumber_RemoveNumber15AtIndex2()
-        //{
-        //    //Arrange
-
-
-        //    //Act
-
-
-        //    //Assert
-        //}
+        }
     }
 }

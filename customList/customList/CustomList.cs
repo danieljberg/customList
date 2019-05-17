@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,21 +7,27 @@ using System.Threading.Tasks;
 
 namespace customList
 {
-    public class CustomList<T>
+    public class CustomList<T>: IEnumerable
     {
         //member variables
 
         public T[] items;
         private T[] newItems;
-        public int Count { get { return count; } }
-        private int count;
+        public int count;
+        public int Count { get { return count; } }        
         private int capacity;
+        public T this[int i]
+        {
+            get { return items[i]; }
+            set { items[i] = value; }
+        }
         //constructor
         public CustomList()
         {
+            count = 0;
             capacity = 4;
             items = new T[capacity];
-            count = 0;
+            
         }
         
 
@@ -31,7 +38,7 @@ namespace customList
             {
                 capacity += capacity;
                 newItems = new T[capacity];
-                for (int i = 0; i < capacity/2; i++)
+                for (int i = 0; i < count; i++)
                 {
                     newItems[i] = items[i];
                 }
@@ -62,5 +69,41 @@ namespace customList
                 }               
             }
         }
-    }
+
+        public IEnumerator GetEnumerator()
+        {
+            for (int i = 0; i < count; i++)
+            {
+                yield return items[i];
+            }
+        }
+        public override string ToString()
+        {
+            string newString = "";
+            for (int i = 0; i < count; i++)
+            {
+                newString += items[i] + " ";                
+            }
+            string result = newString.Trim();
+            return result;
+        }
+        public static CustomList<T> operator +(CustomList<T> one, CustomList<T>two)
+        {
+            CustomList<T> customList = new CustomList<T>();
+            foreach (T element in one)
+            {
+                customList.Add(element);
+            }
+            foreach (T element in two)
+            {
+                customList.Add(element);
+            }
+            return customList;
+        }
+        public static CustomList<T> operator -(CustomList<T> one, CustomList<T> two)
+        {
+            CustomList<T> customList = new CustomList<T>();
+
+        }
+    }    
 }

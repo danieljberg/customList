@@ -20,7 +20,7 @@ namespace customListTest
             int actual;
             //Act
             myList.Remove(15);
-            actual = myList.items[2];
+            actual = myList[2];
             //Assert
             Assert.AreEqual(expected, actual);
         }
@@ -85,7 +85,7 @@ namespace customListTest
             myList.Add("Bears");
             myList.Add("Lions");
             myList.Add("Vikings");
-            string expected = "Bears";
+            int expected = 3;
             int actual;
             //Act
             myList.Remove("Bears");

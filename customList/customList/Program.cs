@@ -28,8 +28,13 @@ namespace customList
             //customList1.Add("Lions");
             //Console.WriteLine(customList1);
             //Console.ReadLine();
-
             
+            CustomList<int> one = new CustomList<int>() { 1, 3, 5 };
+            CustomList<int> two = new CustomList<int>() { 2, 1, 6 };
+            CustomList<int> three = one - two;
+            Console.WriteLine(three);
+            Console.ReadLine();
         }
     }
+
 }

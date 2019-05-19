@@ -26,11 +26,8 @@ namespace customList
         {
             count = 0;
             capacity = 4;
-            items = new T[capacity];
-            
+            items = new T[capacity];            
         }
-        
-
         //member methods
         public void Add(T item)
         {            
@@ -103,6 +100,25 @@ namespace customList
         public static CustomList<T> operator -(CustomList<T> one, CustomList<T> two)
         {
             CustomList<T> customList = new CustomList<T>();
+            foreach (T element1 in one)
+            {
+                customList.Add(element1);
+                foreach (T element2 in two)
+                {                    
+                    if (element2.Equals(element1))
+                    {
+                        customList.Remove(element1);                        
+                    }
+                    else
+                    {
+                        continue;
+                    }
+                }
+            }
+            return customList;
+        }
+        public static CustomList<T> operator Zip()
+        {
 
         }
     }    

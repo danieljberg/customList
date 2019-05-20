@@ -107,7 +107,7 @@ namespace customList
                 {                    
                     if (element2.Equals(element1))
                     {
-                        customList.Remove(element1);                        
+                        customList.Remove(element1);
                     }
                     else
                     {
@@ -117,9 +117,16 @@ namespace customList
             }
             return customList;
         }
-        public static CustomList<T> operator Zip()
+        
+        public static CustomList<T> Zip(CustomList<T> one, CustomList<T> two)
         {
-
+            CustomList<T> customList = new CustomList<T>();
+            for (int i = 0; i < one.count; i++)
+            {
+                customList.Add(one[i]);
+                customList.Add(two[i]);
+            }
+            return customList;
         }
     }    
 }

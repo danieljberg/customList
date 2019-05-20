@@ -29,10 +29,11 @@ namespace customList
             //Console.WriteLine(customList1);
             //Console.ReadLine();
             
-            CustomList<int> one = new CustomList<int>() { 1, 3, 5 };
-            CustomList<int> two = new CustomList<int>() { 2, 1, 6 };
-            CustomList<int> three = one - two;
-            Console.WriteLine(three);
+            CustomList<int> odd = new CustomList<int>() { 1, 3, 5 };
+            CustomList<int> even = new CustomList<int>() { 2, 4, 6 };
+            CustomList<int> customList = new CustomList<int>();
+            Zip(even, odd);
+            
             Console.ReadLine();
         }
     }
